@@ -1,3 +1,4 @@
+import { LinkedIn } from '@mui/icons-material';
 import {
   AppBar,
   Toolbar,
@@ -23,6 +24,7 @@ const Root = styled('div')(({ theme }) => ({
     '& .button': {
       color: '#fff',
       textTransform: 'none',
+      background: theme.palette.secondary.dark,
     },
   },
 }));
@@ -40,21 +42,22 @@ const Header: NextPage = () => {
 
           <Stack direction="row" spacing={2}>
             <Button
-              variant="text"
+              variant="contained"
               size="large"
               color="secondary"
               className="button"
+              startIcon={<LinkedIn />}
             >
               Login
             </Button>
-            <Button
+            {/* <Button
               variant="text"
               size="large"
               color="secondary"
               className="button"
             >
               Signup
-            </Button>
+            </Button> */}
           </Stack>
         </Toolbar>
       </AppBar>
