@@ -8,6 +8,19 @@ import {
   Button,
 } from '@mui/material';
 import { NextPage } from 'next';
+import {
+  AppProvider,
+  AppProviders,
+  BuiltInProviders,
+  BuiltInProviderType,
+} from 'next-auth/providers';
+import {
+  ClientSafeProvider,
+  getProviders,
+  signIn,
+  signOut,
+  useSession,
+} from 'next-auth/react';
 
 const Root = styled('div')(({ theme }) => ({
   '& .appBar': {
@@ -30,6 +43,14 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 const Header: NextPage = () => {
+  const { data: session } = useSession();
+  //console.log(session);
+
+  const authenticate = () => {
+    if (!session) signIn('linkedin');
+    else signOut();
+  };
+
   return (
     <Root>
       <AppBar className="appBar" elevation={0} position="fixed">
@@ -47,8 +68,9 @@ const Header: NextPage = () => {
               color="secondary"
               className="button"
               startIcon={<LinkedIn />}
+              onClick={authenticate}
             >
-              Login
+              {session ? 'Logout' : 'Login'}
             </Button>
             {/* <Button
               variant="text"

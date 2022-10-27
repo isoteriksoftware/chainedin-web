@@ -1,5 +1,5 @@
 import { GitHub } from '@mui/icons-material';
-import { Button, styled, TextField, Typography, useTheme } from '@mui/material';
+import { styled, Typography } from '@mui/material';
 import { Input } from '@web3uikit/core';
 import { Search } from '@web3uikit/icons';
 import type { NextPage } from 'next';
@@ -68,8 +68,6 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 const Home: NextPage = () => {
-  const theme = useTheme();
-
   return (
     <Layout>
       <Root>
@@ -79,10 +77,9 @@ const Home: NextPage = () => {
             ChainedIn
           </Typography>
           <Typography variant="h5" className="subTitle">
-            The Decentralized Skill Verification System
+            Decentralized Skill Verification System
           </Typography>
           <Input
-            //label=""
             width="45%"
             size="large"
             placeholder="Search by email address"
