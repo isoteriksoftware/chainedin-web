@@ -7,6 +7,8 @@ import { CacheProvider } from '@emotion/react';
 import { SessionProvider } from 'next-auth/react';
 import Head from 'next/head';
 import { Session } from 'next-auth';
+import { MoralisProvider } from 'react-moralis';
+import { NotificationProvider } from '@web3uikit/core';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -23,7 +25,11 @@ function MyApp({
       <ThemeProvider theme={defaultTheme}>
         <CssBaseline enableColorScheme={true} />
         <SessionProvider session={pageProps.session}>
-          <Component {...pageProps} />
+          <MoralisProvider initializeOnMount={false}>
+            <NotificationProvider>
+              <Component {...pageProps} />
+            </NotificationProvider>
+          </MoralisProvider>
         </SessionProvider>
       </ThemeProvider>
     </CacheProvider>
