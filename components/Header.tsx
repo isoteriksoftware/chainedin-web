@@ -1,32 +1,20 @@
 import { LinkedIn } from '@mui/icons-material';
 import {
   AppBar,
+  Button,
+  Stack,
+  styled,
   Toolbar,
   Typography,
-  styled,
-  Stack,
-  Button,
 } from '@mui/material';
 import { NextPage } from 'next';
-import {
-  AppProvider,
-  AppProviders,
-  BuiltInProviders,
-  BuiltInProviderType,
-} from 'next-auth/providers';
-import {
-  ClientSafeProvider,
-  getProviders,
-  signIn,
-  signOut,
-  useSession,
-} from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 const Root = styled('div')(({ theme }) => ({
   '& .appBar': {
     ...theme.mixins.toolbar,
     background: theme.colors.ebonyClay,
-    color: theme.palette.secondary.light,
+    color: 'white',
 
     '& .brand': {
       fontWeight: 500,
