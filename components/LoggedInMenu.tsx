@@ -2,6 +2,7 @@ import { useTheme } from '@mui/material';
 import { Avatar, PopoverDropdown, PopoverElement } from '@web3uikit/core';
 import { Grid, LogOut } from '@web3uikit/icons';
 import { Session } from 'next-auth';
+import { signOut } from 'next-auth/react';
 import { ReactElement } from 'react';
 
 const Item = ({
@@ -41,7 +42,7 @@ const LoggedInMenu = ({ session }: { session: Session }) => {
       }
     >
       <Item text="Dashboard" icon={<Grid />} />
-      <Item text="Logout" icon={<LogOut />} />
+      <Item text="Logout" icon={<LogOut />} onClick={() => signOut()} />
     </PopoverDropdown>
   );
 };

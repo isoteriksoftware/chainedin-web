@@ -7,11 +7,11 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import { Avatar, useNotification } from '@web3uikit/core';
+import { useNotification } from '@web3uikit/core';
 import { ConnectButton } from '@web3uikit/web3';
-import { url } from 'inspector';
 import { NextPage } from 'next';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import Link from 'next/link';
 import { useEffect } from 'react';
 import { useMoralis } from 'react-moralis';
 import LoggedInMenu from './LoggedInMenu';
@@ -23,6 +23,10 @@ const Root = styled('div')(({ theme }) => ({
     color: 'white',
     zIndex: 1,
 
+    '& .brandLink': {
+      color: 'white',
+      textDecoration: 'none',
+    },
     '& .brand': {
       fontWeight: 500,
     },
@@ -42,7 +46,6 @@ const Header: NextPage = () => {
   const { isWeb3Enabled, deactivateWeb3, chainId } = useMoralis();
   const dispatchNotification = useNotification();
   const supportedChainIds = ['80001'];
-  console.log(session);
 
   const authenticate = () => {
     if (!session) signIn('linkedin');
@@ -64,21 +67,25 @@ const Header: NextPage = () => {
       deactivateWeb3();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isWeb3Enabled]);
+  }, [isWeb3Enabled, chainId]);
 
   return (
     <Root>
       <AppBar className="appBar" elevation={2} position="fixed">
         <Toolbar>
-          <Typography variant="h5" className="brand">
-            ChainedIn
-          </Typography>
+          <Link href="/" passHref>
+            <a className="brandLink">
+              <Typography variant="h5" className="brand">
+                ChainedIn
+              </Typography>
+            </a>
+          </Link>
 
           <div className="expand" />
 
           <Stack direction="row" spacing={2}>
             {session && <LoggedInMenu session={session} />}
-            {session && <ConnectButton moralisAuth={false} chainId={80001} />}
+            {session && <ConnectButton moralisAuth={false} />}
             {!session && (
               <Button
                 variant="contained"

@@ -1,14 +1,31 @@
 import { styled } from '@mui/material';
-import React from 'react';
+import { useSession } from 'next-auth/react';
+import React, { ReactNode } from 'react';
 import Header from './Header';
 
 const Root = styled('div')(({ theme }) => ({}));
 
-const Layout = ({ children }: { children?: React.ReactNode }) => {
+const Auth = ({ children }: { children: ReactNode }) => {
+  const { status } = useSession({ required: true });
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  return <>{children}</>;
+};
+
+const Layout = ({
+  children,
+  requiresAuth = false,
+}: {
+  children?: React.ReactNode;
+  requiresAuth?: boolean;
+}) => {
   return (
     <Root>
       <Header />
-      {children}
+      {requiresAuth ? <Auth>{children}</Auth> : <>{children}</>}
     </Root>
   );
 };
