@@ -1,4 +1,3 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { defaultTheme } from '../themes/default.theme';
@@ -20,7 +19,7 @@ function MyApp({
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={defaultTheme}>
-        <CssBaseline />
+        <CssBaseline enableColorScheme={true} />
         <Component {...pageProps} />
       </ThemeProvider>
     </CacheProvider>
