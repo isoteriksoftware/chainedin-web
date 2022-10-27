@@ -20,7 +20,8 @@
     "@web3uikit/web3": "^0.2.2",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/node": "18.11.2",
@@ -29,6 +30,8 @@
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1",
     "prettier": "^2.7.1",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "@types/styled-components": "5.1.26",
+    "babel-plugin-styled-components": "^2.0.7"
   }
 }

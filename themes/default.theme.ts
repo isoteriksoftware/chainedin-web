@@ -4,7 +4,10 @@ export const defaultTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#6559f4',
+      main: '#00d1ae',
+    },
+    secondary: {
+      main: '#39a1ff',
     },
     background: {
       default: '#fefeff',
@@ -14,10 +17,12 @@ export const defaultTheme = createTheme({
     fontFamily: "'Poppins', Roboto, Helvetica, Arial, sans-serif",
   },
   appBar: {
-    background: '#fefeff',
-    color: '#44515c',
+    color: '#fff',
   },
   border: {
     color: '#d9e0e7',
+  },
+  colors: {
+    ebonyClay: '#1f2937',
   },
 });

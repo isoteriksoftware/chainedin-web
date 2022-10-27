@@ -11,15 +11,18 @@ import { NextPage } from 'next';
 const Root = styled('div')(({ theme }) => ({
   '& .appBar': {
     ...theme.mixins.toolbar,
-    background: theme.appBar.background,
+    background: theme.palette.secondary.dark,
     color: theme.appBar.color,
-    borderBottom: `2px solid ${theme.border.color}`,
 
     '& .brand': {
       fontWeight: 500,
     },
     '& .expand': {
       flex: 1,
+    },
+    '& .button': {
+      color: '#fff',
+      textTransform: 'none',
     },
   },
 }));
@@ -29,17 +32,27 @@ const Header: NextPage = () => {
     <Root>
       <AppBar className="appBar" elevation={0} position="fixed">
         <Toolbar>
-          <Typography variant="h4" className="brand">
+          <Typography variant="h5" className="brand">
             ChainedIn
           </Typography>
 
           <div className="expand" />
 
-          <Stack direction="row" spacing={3}>
-            <Button variant="contained" size="large">
+          <Stack direction="row" spacing={2}>
+            <Button
+              variant="text"
+              size="large"
+              color="secondary"
+              className="button"
+            >
               Login
             </Button>
-            <Button variant="contained" size="large">
+            <Button
+              variant="text"
+              size="large"
+              color="secondary"
+              className="button"
+            >
               Signup
             </Button>
           </Stack>
