@@ -25,8 +25,8 @@ import {
 const Root = styled('div')(({ theme }) => ({
   '& .appBar': {
     ...theme.mixins.toolbar,
-    background: theme.palette.secondary.dark,
-    color: theme.appBar.color,
+    background: theme.colors.ebonyClay,
+    color: theme.palette.secondary.light,
 
     '& .brand': {
       fontWeight: 500,
@@ -44,7 +44,7 @@ const Root = styled('div')(({ theme }) => ({
 
 const Header: NextPage = () => {
   const { data: session } = useSession();
-  //console.log(session);
+  console.log(session);
 
   const authenticate = () => {
     if (!session) signIn('linkedin');
@@ -53,7 +53,7 @@ const Header: NextPage = () => {
 
   return (
     <Root>
-      <AppBar className="appBar" elevation={0} position="fixed">
+      <AppBar className="appBar" elevation={2} position="fixed">
         <Toolbar>
           <Typography variant="h5" className="brand">
             ChainedIn
@@ -72,14 +72,6 @@ const Header: NextPage = () => {
             >
               {session ? 'Logout' : 'Login'}
             </Button>
-            {/* <Button
-              variant="text"
-              size="large"
-              color="secondary"
-              className="button"
-            >
-              Signup
-            </Button> */}
           </Stack>
         </Toolbar>
       </AppBar>

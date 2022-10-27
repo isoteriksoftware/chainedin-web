@@ -40,12 +40,12 @@ const Root = styled('div')(({ theme }) => ({
       marginTop: '1.5rem',
       fontWeight: 800,
       fontSize: '4.5rem',
-      color: theme.palette.secondary.dark,
+      color: theme.colors.ebonyClay,
     },
     '& .subTitle': {
       fontWeight: 500,
       fontSize: '1.8rem',
-      color: theme.palette.secondary.dark,
+      color: theme.colors.ebonyClay,
     },
   },
   '& .footer': {
